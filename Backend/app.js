@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const userRouter = require('./routes/userRoute')
 
 
 const url = 'mongodb://localhost/TravelDatabase'
@@ -26,6 +27,8 @@ con.on('open', (req, res) => {
 
 
 app.use(express.json())
+
+app.use('/', userRouter)
 
 
 app.listen(9000, () => {
