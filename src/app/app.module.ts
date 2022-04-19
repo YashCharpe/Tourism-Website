@@ -8,13 +8,15 @@ import { LoginPageComponent } from './MyComponents/login-page/login-page.compone
 import { CommonRegistrationPageComponent } from './MyComponents/common-registration-page/common-registration-page.component';
 import { IndexPageComponent } from './MyComponents/index-page/index-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HotelRegistrationPageComponent } from './MyComponents/hotel-registration-page/hotel-registration-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
     CommonRegistrationPageComponent,
-    IndexPageComponent
+    IndexPageComponent,
+    HotelRegistrationPageComponent
   ],
   imports: [
     BrowserModule,
