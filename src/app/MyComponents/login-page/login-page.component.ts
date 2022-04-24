@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthServicesService } from 'src/app/Services/auth-services.service';
 import { UserServiceService } from 'src/app/Services/user-service.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class LoginPageComponent implements OnInit {
   formGroup!:FormGroup
   formGroupLogin!:FormGroup
 
-  constructor(public userService: UserServiceService,public router:Router) { }
+  constructor(public userService: UserServiceService,public authService: AuthServicesService,public router:Router) { }
 
   ngOnInit(): void {
     this.initForm()
@@ -67,9 +68,19 @@ export class LoginPageComponent implements OnInit {
     if(this.formGroupLogin.valid){
       console.log(this.formGroupLogin.value)
 
-      this.userService.loginUser(this.formGroupLogin.value).subscribe(result =>{
+      this.authService.loginUser(this.formGroupLogin.value).subscribe(result =>{
         if(result.status=="ok"){
+          localStorage.setItem('token', result.data)
+
           alert("Hey " + result.firstName + "! you logged in successfully!")
+
+          if(result.userType=="tourist"){
+            this.router.navigate(['/tourist-dashboard'])
+          }else if(result.userType=="hotel_manager"){
+            this.router.navigate(['/hotel-dashboard'])
+          }
+
+
         }else if(result.status=="wrong"){
           alert("Wrong Password! Please try again")
         }else{

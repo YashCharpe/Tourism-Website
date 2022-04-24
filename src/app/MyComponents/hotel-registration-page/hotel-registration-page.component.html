@@ -12,7 +12,7 @@
 <body>
     <div class="row">
         <div class="col-md-12">
-            <form action="index.html" method="post">
+            <form [formGroup]="formGroup" (ngSubmit)="submitHotelData()" method="post">
                 <h1> Hotel Registration </h1>
 
                 <fieldset>
@@ -20,18 +20,28 @@
                     <legend><span class="number">1</span> Hotel Information</legend>
 
                     <label for="name">Hotel Name:</label>
-                    <input type="text" id="name" name="hotel_name">
+                    <input type="text" formControlName="hotel_name" id="name" name="hotel_name">
 
                     <label for="location">Location:</label>
-                    <input type="text" id="location" name="location">
+                    <input type="text" formControlName="location" id="location" name="location">
+
+                    <!-- <label>Facilities:</label>
+                    <input type="checkbox" formControlName="A/C Rooms" id="A/C Rooms" value="A/C Rooms" name="user_interest"><label class="light" for="A/C Rooms">A/C Rooms</label>&nbsp;
+                    <input type="checkbox" formControlName="Non A/C Rooms" id="Non A/C Rooms" value="Non A/C Rooms" name="user_interest"><label class="light" for="Non A/C Rooms">Non A/C Rooms</label><br>
+                    <input type="checkbox" formControlName="Restaurant" id="Restaurant" value="Restaurant" name="user_interest"><label class="light" for="Restaurant">Restaurant</label>&nbsp;
+                    <input type="checkbox" formControlName="Free Wifi" id="Free Wifi" value="Free Wifi" name="user_interest"><label class="light" for="Free Wifi">Free Wifi</label> &nbsp;
+                    <input type="checkbox" formControlName="Laundary" id="Laundary" value="Laundary" name="user_interest"><label class="light" for="Laundary">Laundary</label> &nbsp;
+                    <input type="checkbox" formControlName="Parking" id="Parking" value="Parking" name="user_interest"><label class="light" for="Parking">Parking</label><br>
+                    <input type="checkbox" formControlName="Dining" id="Dining" value="Dining" name="user_interest"><label class="light" for="Dining">Dining</label> -->
 
                     <label>Facilities:</label>
-                    <input type="checkbox" id="A/C Rooms" value="A/C Rooms" name="user_interest"><label class="light" for="A/C Rooms">A/C Rooms</label>&nbsp;
-                    <input type="checkbox" id="Non A/C Rooms" value="Non A/C Rooms" name="user_interest"><label class="light" for="Non A/C Rooms">Non A/C Rooms</label><br>
-                    <input type="checkbox" id="Restaurant" value="Restaurant" name="user_interest"><label class="light" for="Restaurant">Restaurant</label>&nbsp;
-                    <input type="checkbox" id="Free Wifi" value="Free Wifi" name="user_interest"><label class="light" for="Free Wifi">Free Wifi</label> &nbsp;
-                    <input type="checkbox" id="Laundary" value="Laundary" name="user_interest"><label class="light" for="Laundary">Laundary</label> &nbsp;
-                    <input type="checkbox" id="Parking" value="Parking" name="user_interest"><label class="light" for="Parking">Parking</label>
+                    <input type="checkbox" formControlName="facility1" id="A/C Rooms" value="A/C Rooms" name="user_interest"><label class="light" for="A/C Rooms">A/C Rooms</label>&nbsp;
+                    <input type="checkbox" formControlName="facility2" id="Non A/C Rooms" value="Non A/C Rooms" name="user_interest"><label class="light" for="Non A/C Rooms">Non A/C Rooms</label><br>
+                    <input type="checkbox" formControlName="facility3" id="Restaurant" value="Restaurant" name="user_interest"><label class="light" for="Restaurant">Restaurant</label>&nbsp;
+                    <input type="checkbox" formControlName="facility4" id="Free Wifi" value="Free Wifi" name="user_interest"><label class="light" for="Free Wifi">Free Wifi</label> &nbsp;
+                    <input type="checkbox" formControlName="facility5" id="Laundary" value="Laundary" name="user_interest"><label class="light" for="Laundary">Laundary</label> &nbsp;
+                    <input type="checkbox" formControlName="facility6" id="Parking" value="Parking" name="user_interest"><label class="light" for="Parking">Parking</label><br>
+                    <input type="checkbox" formControlName="facility7" id="Dining" value="Dining" name="user_interest"><label class="light" for="Dining">Dining</label>
 
                     <!-- <label>Age:</label>
                     <input type="radio" id="under_13" value="under_13" name="user_age"><label for="under_13" class="light">Under 13</label><br>
@@ -43,23 +53,26 @@
                     <legend><span class="number">2</span> Hotel Profile</legend>
 
                     <label for="description">Description:</label>
-                    <textarea id="description" name="description"></textarea>
+                    <textarea formControlName="description" id="description" name="description"></textarea>
 
 
                     <label for="hotelClass">Hotel Class:</label>
-                    <select id="hotelClass" name="hotelClass">
+                    <select id="hotelClass" formControlName="hotelClass" name="hotelClass">
                         <optgroup label="Web">
-                        <option value="frontend_developer">1 &#9733;</option>
-                        <option value="php_developer">2 &#9733;</option>
-                        <option value="python_developer">3 &#9733;</option>
-                        <option value="rails_developer">4 &#9733;</option>
-                        <option value="web_designer">5 &#9733;</option>
-                        <option value="wordpress_developer">6 &#9733;</option>
+                        <option value="1 Star">1 &#9733;</option>
+                        <option value="2 Star">2 &#9733;</option>
+                        <option value="3 Star">3 &#9733;</option>
+                        <option value="4 Star">4 &#9733;</option>
+                        <option value="5 Star">5 &#9733;</option>
+                        <option value="6 Star">6 &#9733;</option>
                         </optgroup>
                     </select>
 
                     <label for="rooms_avaliable">Rooms Available:</label>
-                    <input type="text" id="rooms_avaliable" name="rooms_avaliable">
+                    <input type="text" formControlName="rooms_available" id="rooms_avaliable" name="rooms_avaliable">
+
+                    <label for="room_rate">Room Price For 1 Night:</label>
+                    <input type="text" formControlName="room_rate" id="room_rate" name="room_rate">
 
                     <input type="file" (change)="onselectFile($event)">
                     <img *ngFor="let url of images" [src]="url" height="200" width="200">

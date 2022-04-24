@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+
+    <script src="https://kit.fontawesome.com/0c77569ffc.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="bg-img">
+        <div class="contain">
+            <div class="row">
+                <div class="booking-form">
+                    <div class="form-header">
+                        <h1>{{hotelName}}</h1>
+                    </div>
+                    <div class="p-3">
+                        <div class="border bg-dark">
+                            <img src="{{hotelImage0}}" class="img-fluid" alt="Responsive image">
+
+                        </div>
+                    </div>
+                    <div class="form-header">
+                        <h3>
+                            {{hotelDescription}}
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="booking" class="section text-right">
+            <div class="section-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="booking-form">
+                            <div class="form-header">
+                                <h1>Make your reservation</h1>
+                            </div>
+                            <form>
+                                <div class="form-group"> <input class="form-control" type="text" placeholder="Country, ZIP, city..."> <span class="form-label">Destination</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <input class="form-control" type="date" required> <span class="form-label">Check In</span> </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <input class="form-control" type="date" required> <span class="form-label">Check out</span> </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group"> <select class="form-control" required>
+                                                <option value="" selected hidden>no of rooms</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                            </select> <span class="select-arrow"></span> <span class="form-label">Rooms</span> </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group"> <select class="form-control" required>
+                                                <option value="" selected hidden>no of adults</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                            </select> <span class="select-arrow"></span> <span class="form-label">Adults</span> </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group"> <select class="form-control" required>
+                                                <option value="" selected hidden>no of children</option>
+                                                <option>0</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                            </select> <span class="select-arrow"></span> <span class="form-label">Children</span> </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <input class="form-control" type="email" placeholder="Enter your Email"> <span class="form-label">Email</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <input class="form-control" type="tel" placeholder="Enter you Phone"> <span class="form-label">Phone</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-btn"> <button class="submit-btn">Book Now</button> </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <h3 style="margin: 30px auto;  color: black; text-align: center;">{{hotelName}}</h3>
+
+        <div style="width: 600px; height:600px; margin:auto auto auto 100px; float:left; ">
+            <!-- <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+            <h3 style="margin: 30px auto;  color: black; text-align: center;">{{hotelName}}</h3>
+            <div class="carousel-inner" style="border-radius: 2rem;">
+                <div class="carousel-item active" data-bs-interval="2000">
+                    <img [src]="this.hotelDetailReceived.hotelImage0 " style="height: 100%; width: 100%; " class="d-block w-100 " alt="... ">
+                </div>
+                <div class="carousel-item " data-bs-interval="2000 ">
+                    <img [src]=" this.hotelDetailReceived.hotelImage1" style="height: 100%; width: 100%;" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img [src]="this.hotelDetailReceived.hotelImage2 " style="height: 100%; width: 100%; " class="d-block w-100 " alt="... ">
+                </div>
+
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img [src]="this.hotelDetailReceived.hotelImage3 " style="height: 100%; width: 100%; " class="d-block w-100 " alt="... ">
+                </div>
+            </div>
+            <button class="carousel-control-prev " type="button " data-bs-target="#carouselExampleInterval " data-bs-slide="prev ">
+            <span class="carousel-control-prev-icon " aria-hidden="true "></span>
+            <span class="visually-hidden ">Previous</span>
+          </button>
+            <button class="carousel-control-next " type="button " data-bs-target="#carouselExampleInterval " data-bs-slide="next ">
+            <span class="carousel-control-next-icon " aria-hidden="true "></span>
+            <span class="visually-hidden ">Next</span>
+          </button>
+        </div> -->
+
+            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+
+                <div class="carousel-inner" style="border-radius: 2rem;">
+                    <div class="carousel-item active" data-bs-interval="10000">
+                        <img [src]="this.hotelDetailReceived.hotelImage0 " style="height: 100%; width: 100%;" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img [src]=" this.hotelDetailReceived.hotelImage1" style="height: 100%; width: 100%;" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img [src]=" this.hotelDetailReceived.hotelImage2" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+            </div>
+        </div>
+
+        <div style="padding: auto; width:300px; height:500px;margin-left: 800px;">
+            <h5>Amenities</h5>
+            <ul style="list-style-type: none; width:100%;  line-height: 3.4;">
+
+                <li>
+                    <i class="fa-solid fa-wifi"></i> Free Internet
+                </li>
+                <li>
+                    <i class="fa-solid fa-utensils"></i> Dining
+                </li>
+                <li>
+                    <i class="fa-solid fa-square-parking"></i> Parking
+                </li>
+                <li>
+                    <i class="fa-solid fa-square-check"></i> CCTV
+                </li>
+                <li>
+                    <i class="fa-solid fa-square-check"></i> Air Conditioner
+                </li>
+            </ul>
+
+            <h5>Location</h5>
+            <ul style="list-style-type: none; width:100%;  line-height: 3.4;">
+
+                <li>
+                    <i class="fa-solid fa-map-location-dot"></i> {{hotelLocation}}
+                </li>
+            </ul>
+
+            <div style="height: 200px; width: 250px;">
+                <div style="height:100px;width:100px;float:left; ">
+                    <h5>Check In: </h5>
+                    <h6>&nbsp;&nbsp;&nbsp;&nbsp;12 PM</h6>
+                </div>
+                <div style="height:100px;width:100px; float:right; ">
+                    <h5>Check Out: </h5>
+                    <h6>&nbsp;&nbsp;&nbsp;&nbsp;11 AM</h6>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <br><br><br><br>
+
+    <div class="border rounded" style="margin:auto; width:700px; height:300px;padding: 10px; ">
+        <div style="float:left; ">
+            <ul style="list-style-type: none; width:250px; line-height: 3.4; padding:10px;">
+                <h6> Offers</h6>
+                <li>
+                    <i class="fa-solid fa-utensils"></i> Free Breakfast
+                </li>
+                <li>
+                    <i class="fa-solid fa-tags"></i> 15% Cheaper Than Usual
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-square-check"></i> Exciting Offers
+                </li>
+            </ul>
+        </div>
+
+        <div style="float:right; margin-right: 200px;">
+            <p>Price Starts at:</p>
+            <div class="BookingWidgetstyles__PriceInfo-sc-1tsb1-2 jyqvHA">
+                <div>
+                    <div style="font-size:30px"><i class="fa-solid fa-indian-rupee-sign"></i> 2085
+                    </div>
+                    <div>+<i class="fa-solid fa-indian-rupee-sign"></i> 429 taxes &amp; fees
+                    </div>
+                    <p><strong>1 room </strong><span style="padding-left: 2px;">per night</span></p>
+                </div>
+                <div>
+                    <div style="padding:10px 10px 5px 0px"><svg viewBox="0 0 32 32" width="2rem" height="2rem" fill="#777777" class="UserIcon__UserIconSVG-sc-xqeqn3-0 bEvPce"><path d="M21.185 3.148a7.333 7.333 0 11-10.37 10.371 7.333 7.333 0 0110.37-10.371zM16 17.667c-6.992.008-12.659 5.674-12.667 12.667 0 .368.298.667.667.667h24a.667.667 0 00.667-.667C28.659 23.342 22.993 17.675 16 17.667z"></path></svg>                        2 x Guests
+                    </div>
+                    <div style="padding:10px 10px 5px 0px"><svg viewBox="0 0 32 32" width="2rem" height="2rem" fill="#777777" class="DoubleBedIcon__DoubledBedIconSVG-sc-1hxyafg-0 jZiQuq"><path d="M30 15.667H2a2 2 0 00-2 2V23a1.998 1.998 0 001.5 1.933.667.667 0 01.5.644V27a1.333 1.333 0 002.666 0v-1.333c0-.368.298-.667.667-.667h21.333c.368 0 .667.298.667.667V27a1.333 1.333 0 002.666 0v-1.419a.667.667 0 01.5-.644 2 2 0 001.5-1.937v-5.333a2 2 0 00-2-2zm-26.667-2c0 .368.298.667.667.667h24a.667.667 0 00.667-.667V7a3.333 3.333 0 00-3.333-3.333H6.667A3.333 3.333 0 003.334 7zm5.334-4h2.667c1.191 0 2.292.635 2.888 1.667a.667.667 0 01-.577 1H6.357a.667.667 0 01-.578-1 3.335 3.335 0 012.888-1.667zm12 0h2.667c1.191 0 2.292.635 2.888 1.667a.667.667 0 01-.577 1h-7.288a.667.667 0 01-.578-1 3.335 3.335 0 012.888-1.667z"></path></svg>                        1 x Room
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <button style="width: 200px; " class="btn btn-danger">Book Rooms</button>
+    </div>
+
+
+
+    <section style="height: 100%;  width: 100%;" class="bg-03">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="heading">
+                        <h2 style="text-align: center;">OUR SERVICES</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="wrapper">
+                        <div class="content">
+                            <ol>
+                                <li>
+                                    <i class='fas fa-hotel' style='font-size:48px;color:red'></i>
+                                    <h3>First Class Rooms</h3>
+                                    <p>We have quality rooms with true hygine and Air-conditioned Deluxe Rooms are available. Good infrastructure facilities in the area makes for a improved lifestyle.
+                                    </p>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="wrapper">
+                        <div class="content">
+                            <ol>
+                                <li>
+                                    <i class='fas fa-utensils' style='font-size:48px;color:red'></i>
+                                    <h3>Delicius Food</h3>
+                                    <p>Hot and cold dishes available at breakfast. Fruits, cold meat, cheese, cereal, yogurts - as well as such expected hot foods as eggs, bacon, tomatoes, mushrooms, sausages are available.</p>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="wrapper">
+                        <div class="content">
+                            <ol>
+                                <li>
+                                    <i class='fas fa-running' style='font-size:48px;color:red'></i>
+                                    <h3>Luxury Fitness</h3>
+                                    <p>We have Workout rooms and we are having highly trained trainers such as Dhawal Hemane. We used to arranged programs of yoga which is instructed by Yeeshant Dahikar.
+                                    </p>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="wrapper">
+                        <div class="content">
+                            <ol>
+                                <li>
+                                    <i class='fas fa-swimmer' style='font-size:48px;color:red'></i>
+                                    <h3>Exclusive Swimming Pool</h3>
+                                    <p>We have swimming area with high hygiene maintainance.</p>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="wrapper">
+                        <div class="content">
+                            <ol>
+                                <li>
+                                    <i class='fas fa-car' style='font-size:48px;color:red'></i>
+                                    <h3>Free Parking</h3>
+                                    <p>We have big parking area and there are CCTV's that are covering every corner of area.
+                                    </p>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="wrapper">
+                        <div class="content">
+                            <ol>
+                                <li>
+                                    <i class='fas fa-ambulance' style='font-size:48px;color:red'></i>
+                                    <h3>MEDICAL FACILITIES</h3>
+                                    <p>We have a doctor in our hotel which is for emergency cases. We are giving facility of free body checkup.</p>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <div class="back-img row align-items-center">
+        <div class="container row align-items-center">
+
+            <div class="row text-center row align-items-center text-danger">
+                <div class="col ">
+                    <h3><b>WE ARE PROUD OF OUR ACHIVNESS</b></h3>
+                </div>
+                <div class="col">
+                    <h3>
+                        <B>98</B>
+                    </h3>
+                    <h4>FIVE STARRATINGS</h4>
+                </div>
+                <div class="col">
+                    <h3>
+                        <B>66</B>
+                    </h3>
+                    <h4>INTERNATIONAL GUESTS</h4>
+                </div>
+                <div class="col">
+                    <h3>
+                        <B>44</B>
+                    </h3>
+                    <h4>SERVED BREAKFAST</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <div id="carouselExampleIndicators " class="carousel slide " data-ride="carousel ">
+            <ol class="carousel-indicators ">
+                <li data-target="#carouselExampleIndicators " data-slide-to="0 " class="active "></li>
+                <li data-target="#carouselExampleIndicators " data-slide-to="1 "></li>
+                <li data-target="#carouselExampleIndicators " data-slide-to="2 "></li>
+            </ol>
+            <div class="carousel-inner ">
+                <div class="carousel-item active ">
+                    <img class="d-block w-100 " src="https://r1imghtlak.mmtcdn.com/4f254706705811e78f69025f77df004f.jpg " alt="First slide ">
+                </div>
+                <div class="carousel-item ">
+                    <img class="d-block w-100 " src="https://r1imghtlak.mmtcdn.com/ff70651899f411ebafd90242ac110002.jpeg?&output-quality=75&downsize=910:612&crop=910:612;38,0&output-format=jpg " alt="Second slide ">
+                </div>
+                <div class="carousel-item ">
+                    <img class="d-block w-100 " src="https://ak-d.tripcdn.com/images/220p0g0000007tztiB8FC_R_550_412_R5_Q70_D.jpg " alt="Third slide ">
+                </div>
+            </div>
+            <a class="carousel-control-prev " href="#carouselExampleIndicators " role="button " data-slide="prev ">
+                <span class="carousel-control-prev-icon " aria-hidden="true "></span>
+                <span class="sr-only ">Previous</span>
+            </a>
+            <a class="carousel-control-next " href="#carouselExampleIndicators " role="button " data-slide="next ">
+                <span class="carousel-control-next-icon " aria-hidden="true "></span>
+                <span class="sr-only ">Next</span>
+            </a>
+        </div>
+    </div> -->
+
+
+
+
+</body>
+
+</html>

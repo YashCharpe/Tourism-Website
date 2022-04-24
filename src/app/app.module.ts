@@ -9,6 +9,9 @@ import { CommonRegistrationPageComponent } from './MyComponents/common-registrat
 import { IndexPageComponent } from './MyComponents/index-page/index-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HotelRegistrationPageComponent } from './MyComponents/hotel-registration-page/hotel-registration-page.component';
+import { HotelDashboardPageComponent } from './MyComponents/hotel-dashboard-page/hotel-dashboard-page.component';
+import { TouristDashboardPageComponent } from './MyComponents/tourist-dashboard-page/tourist-dashboard-page.component';
+import { HotelDetailComponent } from './MyComponents/hotel-detail/hotel-detail.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { HotelRegistrationPageComponent } from './MyComponents/hotel-registratio
     LoginPageComponent,
     CommonRegistrationPageComponent,
     IndexPageComponent,
-    HotelRegistrationPageComponent
+    HotelRegistrationPageComponent,
+    HotelDashboardPageComponent,
+    TouristDashboardPageComponent,
+    HotelDetailComponent
   ],
   imports: [
     BrowserModule,
