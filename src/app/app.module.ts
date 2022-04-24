@@ -12,6 +12,7 @@ import { HotelRegistrationPageComponent } from './MyComponents/hotel-registratio
 import { HotelDashboardPageComponent } from './MyComponents/hotel-dashboard-page/hotel-dashboard-page.component';
 import { TouristDashboardPageComponent } from './MyComponents/tourist-dashboard-page/tourist-dashboard-page.component';
 import { HotelDetailComponent } from './MyComponents/hotel-detail/hotel-detail.component';
+import { HotelBookingPageComponent } from './MyComponents/hotel-booking-page/hotel-booking-page.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HotelDetailComponent } from './MyComponents/hotel-detail/hotel-detail.c
     HotelRegistrationPageComponent,
     HotelDashboardPageComponent,
     TouristDashboardPageComponent,
-    HotelDetailComponent
+    HotelDetailComponent,
+    HotelBookingPageComponent
   ],
   imports: [
     BrowserModule,

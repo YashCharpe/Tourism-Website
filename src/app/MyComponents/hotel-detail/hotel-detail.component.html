@@ -21,6 +21,7 @@
 </head>
 
 <body>
+    <a name="top"></a>
     <div class="bg-img">
         <div class="contain">
             <div class="row">
@@ -51,20 +52,21 @@
                             <div class="form-header">
                                 <h1>Make your reservation</h1>
                             </div>
-                            <form>
-                                <div class="form-group"> <input class="form-control" type="text" placeholder="Country, ZIP, city..."> <span class="form-label">Destination</span>
+                            <form [formGroup]="formGroup" (ngSubmit)="submitData()" method="post">
+                                <div class="form-group"> <input class="form-control" formControlName="cityName" type="text" placeholder="Country, ZIP, city..."> <span class="form-label">Destination</span>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="form-group"> <input class="form-control" type="date" required> <span class="form-label">Check In</span> </div>
+                                        <div class="form-group"> <input class="form-control" formControlName="checkInTime" type="date" required> <span class="form-label">Check In</span> </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-group"> <input class="form-control" type="date" required> <span class="form-label">Check out</span> </div>
+                                        <div class="form-group"> <input class="form-control" formControlName="checkOutTime" type="date" required> <span class="form-label">Check out</span> </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <div class="form-group"> <select class="form-control" required>
+                                        <div class="form-group">
+                                            <select class="form-control" formControlName="noOfRooms" required>
                                                 <option value="" selected hidden>no of rooms</option>
                                                 <option>1</option>
                                                 <option>2</option>
@@ -72,7 +74,8 @@
                                             </select> <span class="select-arrow"></span> <span class="form-label">Rooms</span> </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group"> <select class="form-control" required>
+                                        <div class="form-group">
+                                            <select class="form-control" formControlName="noOfAdults" required>
                                                 <option value="" selected hidden>no of adults</option>
                                                 <option>1</option>
                                                 <option>2</option>
@@ -80,7 +83,8 @@
                                             </select> <span class="select-arrow"></span> <span class="form-label">Adults</span> </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group"> <select class="form-control" required>
+                                        <div class="form-group">
+                                            <select class="form-control" formControlName="noOfChildren" required>
                                                 <option value="" selected hidden>no of children</option>
                                                 <option>0</option>
                                                 <option>1</option>
@@ -90,15 +94,15 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="form-group"> <input class="form-control" type="email" placeholder="Enter your Email"> <span class="form-label">Email</span>
+                                        <div class="form-group"> <input class="form-control" formControlName="emailId" type="email" placeholder="Enter your Email"> <span class="form-label">Email</span>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-group"> <input class="form-control" type="tel" placeholder="Enter you Phone"> <span class="form-label">Phone</span>
+                                        <div class="form-group"> <input class="form-control" formControlName="mobNo" type="tel" placeholder="Enter you Phone"> <span class="form-label">Phone</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-btn"> <button class="submit-btn">Book Now</button> </div>
+                                <div class="form-btn"> <button class="submit-btn" type="submit" name="submit">Book Now</button> </div>
                             </form>
                         </div>
                     </div>
@@ -150,6 +154,9 @@
                     </div>
                     <div class="carousel-item">
                         <img [src]=" this.hotelDetailReceived.hotelImage2" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img [src]=" this.hotelDetailReceived.hotelImage3" class="d-block w-100" alt="...">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
@@ -229,7 +236,7 @@
             <p>Price Starts at:</p>
             <div class="BookingWidgetstyles__PriceInfo-sc-1tsb1-2 jyqvHA">
                 <div>
-                    <div style="font-size:30px"><i class="fa-solid fa-indian-rupee-sign"></i> 2085
+                    <div style="font-size:30px"><i class="fa-solid fa-indian-rupee-sign"></i> {{hotelRoomRate}}
                     </div>
                     <div>+<i class="fa-solid fa-indian-rupee-sign"></i> 429 taxes &amp; fees
                     </div>
@@ -245,7 +252,7 @@
             </div>
 
         </div>
-        <button style="width: 200px; " class="btn btn-danger">Book Rooms</button>
+        <button href="#top" style="width: 200px; " class="btn btn-danger" (click)="goUp()">Book Rooms</button>
     </div>
 
 

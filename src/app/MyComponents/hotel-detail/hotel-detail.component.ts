@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { UserServiceService } from 'src/app/Services/user-service.service';
+import { DOCUMENT } from '@angular/common';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 
@@ -13,6 +15,8 @@ import { UserServiceService } from 'src/app/Services/user-service.service';
 export class HotelDetailComponent implements OnInit {
 
   srcData !: SafeResourceUrl;
+
+  formGroup!: FormGroup;
 
 
   hotelDetailReceived:any
@@ -30,11 +34,12 @@ export class HotelDetailComponent implements OnInit {
   hotelImage3!: SafeResourceUrl
 
   myReader:any
-
+   
+  data:any
   currentHotelData : any
   
 
-  constructor( public domSanitizer: DomSanitizer,public router:Router,public userService:UserServiceService) { 
+  constructor( public domSanitizer: DomSanitizer,public router:Router,public userService:UserServiceService,@Inject(DOCUMENT) private dom: Document) { 
 
     this.hotelDetailReceived = history.state.hotelDetailReceived
 
@@ -53,10 +58,6 @@ export class HotelDetailComponent implements OnInit {
       console.log(this.currentHotelData)
     }
 
-    
-    
-
-
     console.log(this.hotelDetailReceived)
 
     this.hotelName = this.hotelDetailReceived.hotelName
@@ -71,7 +72,7 @@ export class HotelDetailComponent implements OnInit {
     this.hotelImage2 = this.hotelDetailReceived.hotelImage2
     this.hotelImage3 = this.hotelDetailReceived.hotelImage3
 
-    var data = {
+     this.data = {
       "hotelName": this.hotelName,
       "hotelLocation": this.hotelLocation,
       "hotelFacilities": this.hotelFacilities,
@@ -86,7 +87,7 @@ export class HotelDetailComponent implements OnInit {
     }
 
     if(hotelData == null){
-      userService.saveHotelDetailToken(data).subscribe(result=>{
+      userService.saveHotelDetailToken(this.data).subscribe(result=>{
 
         if(result.status=="ok"){
           if(hotelData == null){
@@ -103,7 +104,7 @@ export class HotelDetailComponent implements OnInit {
     }
 
     
-
+    
 
     // this.hotelImage0 = this.sanitizer.bypassSecurityTrustResourceUrl(this.hotelDetailReceived.hotelImage0)
     // this.hotelImage1 = this.sanitizer.bypassSecurityTrustResourceUrl(this.hotelDetailReceived.hotelImage1)
@@ -122,6 +123,46 @@ export class HotelDetailComponent implements OnInit {
   
 
   ngOnInit(): void {
+    this.initForm()
   }
 
+  initForm(){
+    this.formGroup = new FormGroup({
+      cityName: new FormControl('', [Validators.required]),
+      checkInTime : new FormControl('', [Validators.required]),
+      checkOutTime: new FormControl('', [Validators.required]),
+      noOfRooms: new FormControl('', [Validators.required]),
+      noOfAdults: new FormControl('', [Validators.required]),
+      noOfChildren: new FormControl('', [Validators.required]),
+      emailId: new FormControl('', [Validators.required]),
+      mobNo: new FormControl('', [Validators.required])
+
+    })
+  }
+
+  submitData(){
+    if(this.formGroup.valid){
+      //console.log(this.formGroup.value)
+      var confirmData = {
+        "cityName" : this.formGroup.value.cityName,
+        "checkInTime" : this.formGroup.value.checkInTime,
+        "checkOutTime" : this.formGroup.value.checkOutTime,
+        "noOfRooms": this.formGroup.value.noOfRooms,
+        "noOfAdults": this.formGroup.value.noOfAdults,
+        "noOfChildren": this.formGroup.value.noOfChildren,
+        "emailId": this.formGroup.value.emailId,
+        "mobNo": this.formGroup.value.mobNo,
+        "hotelData": this.data
+      }
+      console.log(confirmData)
+      this.router.navigate(['/hotel-booking'],{state:{confirmReceive:confirmData}})
+    }else{
+      alert("Something Went Wrong! Please try again")
+    }
+  }
+
+  goUp(){
+    this.dom.body.scrollTop =0;
+    this.dom.documentElement.scrollTop=0;   
+  }
 }

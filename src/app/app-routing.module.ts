@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HotelBookingPageComponent } from './MyComponents/hotel-booking-page/hotel-booking-page.component';
 import { HotelDashboardPageComponent } from './MyComponents/hotel-dashboard-page/hotel-dashboard-page.component';
 import { HotelDetailComponent } from './MyComponents/hotel-detail/hotel-detail.component';
 import { HotelRegistrationPageComponent } from './MyComponents/hotel-registration-page/hotel-registration-page.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path:'hotel-dashboard',component:HotelDashboardPageComponent} ,
   {path:'tourist-dashboard',component:TouristDashboardPageComponent},
   { path: 'hotel-detail',component:HotelDetailComponent},
+  {path:'hotel-booking',component:HotelBookingPageComponent},
 ];
 
 @NgModule({
