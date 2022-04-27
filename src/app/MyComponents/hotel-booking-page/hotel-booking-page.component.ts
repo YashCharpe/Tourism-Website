@@ -37,7 +37,9 @@ export class HotelBookingPageComponent implements OnInit {
   hotelImage2!: SafeResourceUrl
   hotelImage3!: SafeResourceUrl
 
-  constructor() { 
+  sendData:any = {}
+
+  constructor(public router:Router) { 
 
     this.hotelDetailReceived = history.state.confirmReceive
     console.log(this.hotelDetailReceived)
@@ -67,6 +69,11 @@ export class HotelBookingPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+  goToPayment(){
+
+    this.router.navigate(['/payment-page'],{state:{confirmReceive:this.hotelDetailReceived}})
+
   }
 
 }

@@ -19,6 +19,13 @@ export class HotelServiceService {
     return this.http.get("http://localhost:9000/hotelDetails")
   }
 
+  bookHotel(data:any):Observable<any> {
+    return this.http.post("http://localhost:9000/bookHotel",data)
+  }
+
+  bookHotelPatch(data:any):Observable<any> {
+    return this.http.patch("http://localhost:9000/bookHotelPatch",data)
+  }
 
 
 }

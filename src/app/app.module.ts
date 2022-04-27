@@ -13,6 +13,8 @@ import { HotelDashboardPageComponent } from './MyComponents/hotel-dashboard-page
 import { TouristDashboardPageComponent } from './MyComponents/tourist-dashboard-page/tourist-dashboard-page.component';
 import { HotelDetailComponent } from './MyComponents/hotel-detail/hotel-detail.component';
 import { HotelBookingPageComponent } from './MyComponents/hotel-booking-page/hotel-booking-page.component';
+import { PaymentPageComponent } from './MyComponents/payment-page/payment-page.component';
+import { BookingConfirmationPageComponent } from './MyComponents/booking-confirmation-page/booking-confirmation-page.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { HotelBookingPageComponent } from './MyComponents/hotel-booking-page/hot
     HotelDashboardPageComponent,
     TouristDashboardPageComponent,
     HotelDetailComponent,
-    HotelBookingPageComponent
+    HotelBookingPageComponent,
+    PaymentPageComponent,
+    BookingConfirmationPageComponent
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const router = express.Router()
 const User = require('../Models/user')
 const HotelData = require('../Models/hotel')
+const BookingDetail = require('../Models/hotelBooking')
 
 
 router.get('/hotelDetails', async(req, res) => {
@@ -35,5 +36,33 @@ router.post("/hotelDetails", async(req, res) => {
         res.send("Error: " + err)
     }
 })
+
+router.post("/bookHotel", async(req, res) => {
+
+    const bookdetail = new BookingDetail({
+        emailId: req.body.emailId,
+        bookingDetails: req.body.bookingDetails
+    })
+    try {
+        const b1 = await bookdetail.save()
+        res.json(b1)
+    } catch (err) {
+        res.json({ "error": "Error", "code": 11000 })
+    }
+
+})
+
+router.patch("/bookHotelPatch", async(req, res) => {
+
+
+    try {
+        const h1 = await BookingDetail.findOneAndUpdate({ emailId: req.body.emailId }, { $push: { bookingDetails: req.body.bookingDetails } })
+        res.json(h1)
+    } catch (err) {
+        res.send("Error: " + err)
+    }
+
+})
+
 
 module.exports = router

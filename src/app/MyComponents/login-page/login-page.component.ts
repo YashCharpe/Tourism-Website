@@ -14,8 +14,13 @@ export class LoginPageComponent implements OnInit {
   hiddenStatus:boolean = false;
   formGroup!:FormGroup
   formGroupLogin!:FormGroup
+  //emailId: String = ""
 
-  constructor(public userService: UserServiceService,public authService: AuthServicesService,public router:Router) { }
+  constructor(public userService: UserServiceService,public authService: AuthServicesService,public router:Router) {
+
+    localStorage.clear()
+   
+  }
 
   ngOnInit(): void {
     this.initForm()
@@ -23,8 +28,8 @@ export class LoginPageComponent implements OnInit {
   initForm() {
 
     this.formGroup = new FormGroup({
-      emailId: new FormControl('', [Validators.required]),
-      password: new FormControl('', Validators.required),
+      emailId: new FormControl('', [Validators.required,Validators.pattern("^[a-z][a-z0-9]{2,8}@[a-z][a-z0-9]{2,8}\.[a-z]{2,8}$")]),
+      password: new FormControl('', [Validators.required,Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$")]),
       userType: new FormControl('', Validators.required),
       firstName: new FormControl('', Validators.required),
       lastName: new FormControl('', Validators.required),
@@ -32,9 +37,11 @@ export class LoginPageComponent implements OnInit {
       address: new FormControl('', Validators.required)
     })
 
+    //this.emailId= this.formGroup.value.emailId;
+    //"^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
     this.formGroupLogin = new FormGroup({
-      emailId: new FormControl('', [Validators.required]),
-      password: new FormControl('', Validators.required)
+      emailId: new FormControl('', [Validators.required,Validators.pattern("^[a-z][a-z0-9]{2,8}@[a-z][a-z0-9]{2,8}\.[a-z]{2,8}$")]),
+      password: new FormControl('', [Validators.required])
     })
   }
 
@@ -44,6 +51,14 @@ export class LoginPageComponent implements OnInit {
     }else{
       this.hiddenStatus = true
     }
+  }
+
+  get m(){
+    return this.formGroupLogin.controls;
+  }
+
+  get mSignUp(){
+    return this.formGroup.controls;
   }
 
   submitData(){
