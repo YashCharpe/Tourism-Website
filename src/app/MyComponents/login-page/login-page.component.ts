@@ -28,8 +28,10 @@ export class LoginPageComponent implements OnInit {
   initForm() {
 
     this.formGroup = new FormGroup({
-      emailId: new FormControl('', [Validators.required,Validators.pattern("^[a-z][a-z0-9]{2,8}@[a-z][a-z0-9]{2,8}\.[a-z]{2,8}$")]),
-      password: new FormControl('', [Validators.required,Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$")]),
+      //emailId: new FormControl('', [Validators.required,Validators.pattern("^[a-z][a-z0-9]{2,8}@[a-z][a-z0-9]{2,8}\.[a-z]{2,8}$")]),
+      emailId: new FormControl('', [Validators.required]),
+      //password: new FormControl('', [Validators.required,Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$")]),
+      password: new FormControl('', [Validators.required]),
       userType: new FormControl('', Validators.required),
       firstName: new FormControl('', Validators.required),
       lastName: new FormControl('', Validators.required),
@@ -40,7 +42,7 @@ export class LoginPageComponent implements OnInit {
     //this.emailId= this.formGroup.value.emailId;
     //"^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
     this.formGroupLogin = new FormGroup({
-      emailId: new FormControl('', [Validators.required,Validators.pattern("^[a-z][a-z0-9]{2,8}@[a-z][a-z0-9]{2,8}\.[a-z]{2,8}$")]),
+      emailId: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
     })
   }
@@ -72,6 +74,13 @@ export class LoginPageComponent implements OnInit {
         if(result.status =="ok"){
           alert("User Registered!")
           console.log(result)
+          if(this.formGroup.value.userType=="hotel_manager"){
+            this.router.navigate(['/hotel-registration'],{state:{sendEmailId:this.formGroup.value.emailId}})
+            
+          }else{
+            this.router.navigate(['/login'])
+          }
+
         }else if(result.status=="error"){
           alert(result.error)
         }
@@ -94,7 +103,6 @@ export class LoginPageComponent implements OnInit {
           }else if(result.userType=="hotel_manager"){
             this.router.navigate(['/hotel-dashboard'])
           }
-
 
         }else if(result.status=="wrong"){
           alert("Wrong Password! Please try again")

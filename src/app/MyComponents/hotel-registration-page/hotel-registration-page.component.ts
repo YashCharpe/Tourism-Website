@@ -23,19 +23,21 @@ export class HotelRegistrationPageComponent implements OnInit {
     fileSource: new FormControl('', [Validators.required])
   });
 
-  constructor(public hotelService: HotelServiceService,public router:Router) { }
+  constructor(public hotelService: HotelServiceService,public router:Router) {
+    this.currentUser = history.state.sendEmailId
+  }
   
 
   ngOnInit(): void {
 
-    const jwtToken = localStorage.getItem('token')
-    this.currentUser = atob(jwtToken!.split('.')[1])
-    this.currentUser = JSON.parse(this.currentUser)
-    this.currentUser = JSON.stringify(this.currentUser)
-    this.currentUser = this.currentUser.split(',')[1].split(':')[1]
-    this.currentUser = this.currentUser.replace('"', '')
-    this.currentUser = this.currentUser.replace('"', '')
-    console.log(this.currentUser)
+    // const jwtToken = localStorage.getItem('token')
+    // this.currentUser = atob(jwtToken!.split('.')[1])
+    // this.currentUser = JSON.parse(this.currentUser)
+    // this.currentUser = JSON.stringify(this.currentUser)
+    // this.currentUser = this.currentUser.split(',')[1].split(':')[1]
+    // this.currentUser = this.currentUser.replace('"', '')
+    // this.currentUser = this.currentUser.replace('"', '')
+    // console.log(this.currentUser)
 
     this.initForm()
   }
